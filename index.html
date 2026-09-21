@@ -1,52 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Calculator V2</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeAlpha Calculator V2 PRO</title>
+<style>
+body{margin:0;background:#111;display:flex;justify-content:center;align-items:center;min-height:100vh;font-family:Arial}
+.calc{width:300px;background:#1e1e1e;border-radius:20px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+.display{width:100%;height:70px;background:white;border-radius:12px;margin-bottom:15px;font-size:32px;text-align:right;padding:15px;box-sizing:border-box;overflow:hidden}
+.btns{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+button{height:60px;border:none;border-radius:12px;font-size:20px;font-weight:bold;cursor:pointer}
+.num{background:#333;color:white}
+.op{background:#ff9500;color:white}
+.eq{background:#ff9500;color:white}
+.ac{background:#a5a5a5}
+</style>
 </head>
 <body>
-
-<div class="container">
-
-    <div class="calculator">
-
-        <input type="text" id="display" readonly>
-
-        <div class="buttons">
-
-            <button class="clear">AC</button>
-            <button class="delete">DEL</button>
-            <button class="operator">%</button>
-            <button class="operator">/</button>
-
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button class="operator">*</button>
-
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button class="operator">-</button>
-
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button class="operator">+</button>
-
-            <button class="zero">0</button>
-            <button>.</button>
-            <button class="equal">=</button>
-
-        </div>
-
-    </div>
-
+<div class="calc">
+<div class="display" id="display"></div>
+<div class="btns">
+<button class="ac" onclick="clearAll()">AC</button>
+<button class="ac" onclick="del()">DEL</button>
+<button class="op" onclick="add('%')">%</button>
+<button class="op" onclick="add('/')">÷</button>
+<button class="num" onclick="add('7')">7</button>
+<button class="num" onclick="add('8')">8</button>
+<button class="num" onclick="add('9')">9</button>
+<button class="op" onclick="add('*')">×</button>
+<button class="num" onclick="add('4')">4</button>
+<button class="num" onclick="add('5')">5</button>
+<button class="num" onclick="add('6')">6</button>
+<button class="op" onclick="add('-')">-</button>
+<button class="num" onclick="add('1')">1</button>
+<button class="num" onclick="add('2')">2</button>
+<button class="num" onclick="add('3')">3</button>
+<button class="op" onclick="add('+')">+</button>
+<button class="num" onclick="add('0')">0</button>
+<button class="num" onclick="add('.')">.</button>
+<button class="eq" style="grid-column: span 2" onclick="calc()">=</button>
 </div>
-
-<script src="script.js"></script>
-
+</div>
+<script>
+let expr="";
+let disp=document.getElementById('display');
+function add(v){expr+=v;disp.innerText=expr;}
+function clearAll(){expr="";disp.innerText="";}
+function del(){expr=expr.slice(0,-1);disp.innerText=expr;}
+function calc(){
+  try{
+    let res=eval(expr.replace(/%/g,'/100'));
+    disp.innerText=res;
+    expr=res.toString();
+  }catch(e){
+    disp.innerText="Error";
+    expr="";
+  }
+}
+</script>
 </body>
 </html>
