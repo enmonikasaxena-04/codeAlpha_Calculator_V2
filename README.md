@@ -32,6 +32,19 @@ A responsive calculator built using HTML, CSS and JavaScript.
 ### Screenshot 4 - Full View
 ![Screenshot 4](<WhatsApp Image 2026-09-22 at 12.53.40.jpeg>)
 
+
+## 🚀 Live Demo
+
+https://enmonikasaxena-04.github.io/codeAlpha_Calculator_V2/
+
+## 💻 GitHub Repository
+
+https://github.com/enmonikasaxena-04/codeAlpha_Calculator_V2
+
+## 🎥 Project Demo
+
+https://lnkd.in/p/gDUQZ4pF
+
 ## 👩‍💻 Author
 Monika Saxena
 
